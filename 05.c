@@ -47,8 +47,11 @@ int main(int argc, char *argv[]) {
     }
 
     FILE* src_file_ptr = try_to_open_file(argv[1], "r");
+    if (src_file_ptr == NULL) {
+        return 1;
+    }
     FILE* dest_file_ptr = try_to_open_file(argv[2], "w");
-    if (src_file_ptr == NULL || dest_file_ptr == NULL) {
+    if (dest_file_ptr == NULL) {
         return 1;
     }
 
