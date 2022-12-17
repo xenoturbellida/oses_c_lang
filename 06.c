@@ -44,12 +44,12 @@ int read_dir_entries_by_path(char path[]) {
                 }
                 printf("%s\n", dirent_ptr->d_name);
             } else {
+                try_to_close_dir(dir_ptr);
                 break;
             }
         }
     }
-
-    try_to_close_dir(dir_ptr);
+    
     return 1;
 }
 
